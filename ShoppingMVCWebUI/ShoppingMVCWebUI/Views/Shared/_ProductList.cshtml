@@ -1,0 +1,34 @@
+﻿@using ShoppingMVCWebUI.Models;
+@model  IEnumerable<ProductModel>
+@{
+    ViewBag.Title = "List";
+}
+
+<div class="row">
+    @foreach (var item in Model)
+    {
+
+        <div class="col-md-4 pb-5">
+
+            <div class="card">
+                <img class="card-img-top " src="@item.Image" data-holder-rendered="true" style="height: 180px; width: 100%; display: block;">
+                <div class="card-body">
+                    <h5 class="card-title "><a href="/Home/Details/@item.Id">@item.Name</a></h5>
+                    <p style="height:40px;" class="card-text pt-2"> @item.Description </p>
+                    <span>@item.Price <i class="fas fa-hryvnia text-muted" style="font-size: 20px;"></i></span>
+                    
+                </div>
+                <div class="card-footer">
+                    <a href="/Home/Details/@item.Id" class="btn btn-success float-left">
+                        Add  To Card
+                    </a>
+                    <a href="/Home/Details/@item.Id" class="btn btn-default float-right">
+                        Details
+                    </a>
+
+                </div>
+            </div>
+        </div>
+
+    }
+</div>

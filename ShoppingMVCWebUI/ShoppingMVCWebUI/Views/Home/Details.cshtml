@@ -1,0 +1,109 @@
+﻿@using ShoppingMVCWebUI.Entity;
+@model  Product
+@{
+    ViewBag.Title = "Details";
+}
+    <div id="product-details" class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <img src="@Model.Image" class="img-fluid rounded w-50" alt="@Model.Name">
+            </div>
+            <div class="col-md-6">
+                <h1>@Model.Name</h1>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="row">
+                            <div class="col-md-6">
+                                @if (Model.IsApproved)
+                                {
+                                    <span class="badge badge-success">В Наличии</span>
+                                }
+                                else
+                                {
+                                    <span class="badge badge-danger">нет В Наличии</span>
+                                }
+                                
+                                <span class="badge badge-dark">Номер товара: 132123</span>
+                            </div>
+
+
+                        </div>
+
+
+
+                    </div>
+                </div>
+                <div class="col-md-12 mt-3">
+                    <div class="row">
+
+
+
+
+                    </div>
+                </div>
+
+                <span class="text-muted text-justify">
+                    @Model.Description
+
+                </span>
+
+
+                <div class="col-md-12 mt-2">
+                    <div class="row">
+
+
+                        <i class="fa fa-star" aria-hidden="true" style="font-size:12px;"></i>
+
+                        <i class="fa fa-star" aria-hidden="true" style="font-size:12px;"></i>
+
+                        <i class="fa fa-star" aria-hidden="true" style="font-size:12px;"></i>
+
+                        <i class="fa fa-star" aria-hidden="true" style="font-size:12px;"></i>
+
+                        <i class="fa fa-star" aria-hidden="true" style="font-size:12px;"></i>
+                        <span class="text-muted"> 54 </span>
+                        <span style="margin-left:20px;"> Write a review</span>
+                    </div>
+                </div>
+
+                
+                    
+                        <h3 class="text-dark mt-2"> @Model.Price <i class="fas fa-hryvnia" style="font-size: 26px;"></i></h3>
+                    
+
+
+                    <button class="btn btn-success mt-1">
+                        Add To Cart
+                    </button>
+
+
+                
+
+
+            </div>
+
+
+        </div>
+        <div class="row mt-3">
+            <div class="col-md-12">
+                <ul class="nav nav-tabs" id="myTab" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link active" id="home-tab" data-toggle="tab" href="#descriptions" role="tab" aria-controls="home" aria-selected="true">Descriptions</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="profile-tab" data-toggle="tab" href="#payment-methods" role="tab" aria-controls="profile" aria-selected="false">Payment Methods</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="contact-tab" data-toggle="tab" href="#comment" role="tab" aria-controls="contact" aria-selected="false">Comment</a>
+                    </li>
+                </ul>
+                <div class="tab-content" id="myTabContent">
+                    <div class="tab-pane fade show active text-justify" id="descriptions" role="tabpanel" aria-labelledby="home-tab">@Model.Description</div>
+                    <div class="tab-pane fade" id="payment-methods" role="tabpanel" aria-labelledby="profile-tab">
+                        <button class="btn btn-success">Liqpay</button> <button class="btn btn-primary mb-1">Debit Card</button><button class="btn btn-info mb-1">On adress</button>
+                    </div>
+                    <div class="tab-pane fade" id="comment" role="tabpanel" aria-labelledby="contact-tab">Comments here..</div>
+                </div>
+            </div>
+        </div>
+    </div>

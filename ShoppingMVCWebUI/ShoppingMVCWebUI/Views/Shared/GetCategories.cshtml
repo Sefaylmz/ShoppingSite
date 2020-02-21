@@ -1,0 +1,37 @@
+﻿@using ShoppingMVCWebUI.Entity;
+@model  IEnumerable<Category>
+@{
+    ViewBag.Title = "List";
+    var selectedCategory = Url.RequestContext.RouteData.Values["id"];
+}
+    <ul class="list-group">
+        <li class="list-group-item"><a href="/Home/List">All Category</a></li>
+        @foreach (var item in Model)
+        {
+            if (selectedCategory != null)
+            {
+                if (item.Id == Convert.ToInt32(selectedCategory.ToString()))
+                {
+                    <li  class="list-group-item active ">
+                        <a style="color:white;" href="/Home/List/@item.Id">@item.Name</a>
+                    </li>
+                }
+                else
+                {
+                    <li class="list-group-item">
+                        <a href="/Home/List/@item.Id">@item.Name</a>
+                    </li>
+                }
+            }
+            else
+            {
+                <li class="list-group-item">
+                    <a href="/Home/List/@item.Id">@item.Name</a>
+                </li>
+            }
+
+
+
+        }
+    </ul>
+
